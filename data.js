@@ -1,7 +1,7 @@
 const worksData = [
     {
         id: 14,
-        title: "太和洞 日常海报"",
+        title: "太和洞 日常海报",
         category: "poster",
         image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/22-太和洞日常轮播APP.jpg",
         images: [
