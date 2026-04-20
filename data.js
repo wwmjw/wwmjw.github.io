@@ -1,103 +1,105 @@
 const worksData = [
     {
         id: 24,
-        title: "新作品1",
+        title: "正安堂 黑五海报",
         category: "poster",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/new-work-1.jpg",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/23-正安堂黑五APP.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/new-work-1.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/23-正安堂黑五APP.jpg"
         ],
-        description: "新添加的海报作品"
+        description: "正安堂旗舰店 黑五APP海报"
     },
     {
         id: 23,
-        title: "新作品2",
-        category: "daily-home",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/new-work-2.jpg",
+        title: "BG-PRO 日常海报",
+        category: "poster",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-BG-PRO日常首页APP海报.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/new-work-2.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-BG-PRO日常首页APP海报.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-BG PRO日常首页PC海报.jpg"
         ],
-        description: "新添加的日常首页作品"
+        description: "BG-PRO旗舰店 日常APP、PC海报"
     },
     {
         id: 22,
-        title: "新作品3",
-        category: "daily-detail",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/new-work-3.jpg",
+        title: "紫花油 黑五海报",
+        category: "poster",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/23-紫花油黑五APP.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/new-work-3.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/23-紫花油黑五APP.jpg"
         ],
-        description: "新添加的主图及详情作品"
+        description: "紫花油旗舰店 黑五APP海报"
     },
     {
         id: 21,
-        title: "新作品4",
-        category: "other",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/其他/new-work-4.jpg",
+        title: "紫花油 99超值购海报",
+        category: "poster",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/23-紫花油99超值购APP.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/其他/new-work-4.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/23-紫花油99超值购APP.jpg"
         ],
-        description: "新添加的其他作品"
+        description: "紫花油旗舰店 99超值购APP海报"
     },
     {
         id: 20,
-        title: "新作品5",
-        category: "activity-main",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/活动主图/new-work-5.jpg",
+        title: "紫花油 88会员海报",
+        category: "poster",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/23-紫花油88会员APP.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/活动主图/new-work-5.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/23-紫花油88会员APP.jpg"
         ],
-        description: "新添加的活动主图作品"
+        description: "紫花油旗舰店 88会员日APP海报"
     },
     {
         id: 19,
-        title: "新作品6",
-        category: "activity-page",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/活动页/new-work-6.jpg",
+        title: "加州宝宝 3.8海报",
+        category: "poster",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/23-加州宝宝38APP.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/活动页/new-work-6.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/23-加州宝宝38APP.jpg"
         ],
-        description: "新添加的活动页作品"
+        description: "加州宝宝旗舰店 3.8妇女节 APP海报"
     },
     {
         id: 18,
-        title: "新作品7",
+        title: "法之羽 划算节海报",
         category: "poster",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/new-work-7.jpg",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/22-法之羽99划算节APP.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/new-work-7.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/22-法之羽99划算节APP.jpg"
         ],
-        description: "新添加的海报作品"
+        description: "法之羽旗舰店 99划算节 APP海报"
     },
     {
         id: 17,
-        title: "新作品8",
-        category: "daily-home",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/new-work-8.jpg",
+        title: "加州宝宝 奶爸盛典海报",
+        category: "poster",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/22-加州宝宝奶爸盛典APP.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/new-work-8.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/22-加州宝宝奶爸盛典APP.jpg"
         ],
-        description: "新添加的日常首页作品"
+        description: "加州宝宝旗舰店 奶爸盛典 卡通风格APP海报"
     },
     {
         id: 16,
-        title: "新作品9",
-        category: "daily-detail",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/new-work-9.jpg",
+        title: "法之羽 划算节海报",
+        category: "poster",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/22-法之羽55划算节APP.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/new-work-9.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/22-法之羽55划算节APP.jpg"
         ],
-        description: "新添加的主图及详情作品"
+        description: "法之羽旗舰店 55划算节APP海报"
     },
     {
         id: 15,
-        title: "新作品10",
-        category: "activity-main",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/活动主图/new-work-10.jpg",
+        title: "法之羽 新年狂欢海报",
+        category: "poster",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-法之羽新年狂欢APP.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/活动主图/new-work-10.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-法之羽新年狂欢APP.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-法之羽新年狂欢PC.jpg"
         ],
-        description: "新添加的活动主图作品"
+        description: "法之羽旗舰店 新年狂欢APP、PC海报"
     },
     {
         id: 14,
