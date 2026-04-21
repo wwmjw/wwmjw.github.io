@@ -35,7 +35,7 @@ body {
     background: var(--bg-color);
     padding: 10px 0;
     box-shadow: 0 4px 12px rgba(163, 177, 198, 0.3);
-    transition: var(--transition);
+    transition: box-shadow 0.3s ease;
 }
 
 .fixed-search .container {
