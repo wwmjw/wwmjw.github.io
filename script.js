@@ -5,10 +5,118 @@ let currentWork = null;
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initWorksFilter();
+    initSearch();
     renderWorks();
     initScrollAnimations();
     initImageZoom();
 });
+
+function initSearch() {
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    const clearBtn = document.getElementById('clear-btn');
+    
+    if (!searchInput || !searchBtn || !clearBtn) return;
+    
+    // 监听输入变化，显示/隐藏清除按钮
+    searchInput.addEventListener('input', () => {
+        clearBtn.style.display = searchInput.value ? 'flex' : 'none';
+    });
+    
+    // 清除按钮功能
+    clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        clearBtn.style.display = 'none';
+        searchInput.focus();
+        // 重置显示全部作品
+        currentCategory = 'all';
+        updateFilterButtons();
+        renderWorks();
+    });
+    
+    // 搜索按钮功能
+    function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        if (searchTerm) {
+            currentCategory = 'all';
+            navigateTo('works');
+            
+            setTimeout(() => {
+                const filteredWorks = worksData.filter(work => 
+                    work.title.toLowerCase().includes(searchTerm) || 
+                    work.description.toLowerCase().includes(searchTerm)
+                );
+                
+                const grids = [
+                    document.getElementById('works-grid'),
+                    document.getElementById('works-grid-page')
+                ];
+                
+                grids.forEach(grid => {
+                    if (!grid) return;
+                    grid.innerHTML = '';
+                    
+                    // 创建列元素
+                    const columnCount = window.innerWidth <= 768 ? 2 : 5;
+                    const columns = [];
+                    const columnHeights = [];
+                    
+                    for (let i = 0; i < columnCount; i++) {
+                        const column = document.createElement('div');
+                        column.className = 'works-column';
+                        column.style.flex = '1';
+                        column.style.display = 'flex';
+                        column.style.flexDirection = 'column';
+                        column.style.gap = '20px';
+                        grid.appendChild(column);
+                        columns.push(column);
+                        columnHeights.push(0);
+                    }
+                    
+                    // 渲染卡片
+                    filteredWorks.forEach((work, index) => {
+                        const card = document.createElement('div');
+                        card.className = 'work-card visible';
+                        card.dataset.id = work.id;
+                        card.style.transitionDelay = `${index * 0.1}s`;
+                        card.innerHTML = `
+                            <div class="work-info">
+                                <h3 class="work-title">${work.title}</h3>
+                                <p class="work-category">${getCategoryName(work.category)}</p>
+                            </div>
+                            <img src="${work.image}" alt="${work.title}" class="work-image">
+                        `;
+                        
+                        // 找到最短的列
+                        const shortestColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
+                        columns[shortestColumnIndex].appendChild(card);
+                        
+                        // 预估卡片高度（用于瀑布流）
+                        columnHeights[shortestColumnIndex] += 300;
+                        
+                        card.addEventListener('click', () => {
+                            const workId = parseInt(card.dataset.id);
+                            showWorkDetail(workId);
+                        });
+                    });
+                });
+            }, 200);
+        } else {
+            // 如果没有搜索内容，显示全部作品
+            currentCategory = 'all';
+            updateFilterButtons();
+            renderWorks();
+        }
+    }
+    
+    searchBtn.addEventListener('click', performSearch);
+    
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+}
 
 function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-links a[data-page]');
