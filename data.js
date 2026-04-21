@@ -8,7 +8,7 @@ const worksData = [
             "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/20-Ddrops日常海报PC.jpg",
             "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/20-Ddrops日常海报APP.jpg"
         ],
-        description: "Ddrops旗舰店 日常APP、PC海报"
+        description: "Ddrops旗舰店 日常APP、PC海报\n\n本作完成于 2020 年，也是第一次尝试写实风格合成类设计。创作过程中投入了较多时间打磨细节，如今回看虽有不足，但正是这一次从零开始的尝试，让我之后更敢于突破舒适区，去探索更多不同的设计风格。"
     },
     {
         id: 69,
