@@ -92,6 +92,74 @@ body {
     width: 300px;
 }
 
+@media (max-width: 768px) {
+    .search-container {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 5px;
+        transition: all 0.3s ease;
+    }
+    
+    .search-container:focus-within {
+        width: 200px;
+        border-radius: 12px;
+    }
+    
+    .search-input {
+        opacity: 0;
+        width: 0;
+        transition: all 0.3s ease;
+    }
+    
+    .search-container:focus-within .search-input {
+        opacity: 1;
+        width: 100%;
+    }
+    
+    .search-btn {
+        font-size: 18px;
+    }
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 14px;
+    color: var(--text-dark);
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: var(--text-light);
+}
+
+.search-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-gray);
+    transition: var(--transition);
+    padding: 5px;
+}
+
+.search-btn:hover {
+    color: var(--primary-blue);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background: var(--bg-color);
+    border-radius: 12px;
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+    padding: 5px 10px;
+    width: 300px;
+}
+
 .search-input {
     flex: 1;
     border: none;
