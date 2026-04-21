@@ -82,6 +82,44 @@ body {
     align-items: center;
 }
 
+.search-container {
+    display: flex;
+    align-items: center;
+    background: var(--bg-color);
+    border-radius: 12px;
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+    padding: 5px 10px;
+    width: 300px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 14px;
+    color: var(--text-dark);
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: var(--text-light);
+}
+
+.search-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-gray);
+    transition: var(--transition);
+    padding: 5px;
+}
+
+.search-btn:hover {
+    color: var(--primary-blue);
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
