@@ -6,10 +6,35 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initWorksFilter();
     initSearch();
+    adjustSearchPosition();
     renderWorks();
     initScrollAnimations();
     initImageZoom();
+    
+    // 页面加载完成后再次调整位置，确保完全准确
+    window.addEventListener('load', adjustSearchPosition);
 });
+
+// 动态调整搜索栏位置，确保与导航栏无缝衔接
+function adjustSearchPosition() {
+    const navbar = document.querySelector('.navbar');
+    const fixedSearch = document.querySelector('.fixed-search');
+    const main = document.querySelector('main');
+    
+    if (navbar && fixedSearch) {
+        const navbarHeight = navbar.offsetHeight;
+        fixedSearch.style.top = `${navbarHeight}px`;
+        
+        // 动态调整main的padding-top，确保内容不被遮挡
+        if (main && fixedSearch) {
+            const searchHeight = fixedSearch.offsetHeight;
+            main.style.paddingTop = `${navbarHeight + searchHeight + 20}px`;
+        }
+    }
+}
+
+// 监听窗口大小变化，重新调整搜索栏位置
+window.addEventListener('resize', adjustSearchPosition);
 
 function initSearch() {
     const searchInput = document.getElementById('search-input');
