@@ -1,29 +1,143 @@
 const worksData = [
     {
-        id: 55,
-        title: "文字 主图及详情",
+        id: 63,
+        title: "BG PRO 长高钙片主图及详情",
         category: "daily-detail",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG长高钙详情.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图2.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图3.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图4.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG长高钙详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG长高钙主图1产品卖点.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG长高钙主图2需求场景.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG长高钙主图3产品成分.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG长高钙主图5产品信息.jpg"
         ],
-        description: "文字店铺 文字设计"
+        description: "BG PRO旗舰店 长高钙片产品 主图及详情页面设计"
+    },
+    {
+        id: 62,
+        title: "BG PRO 银杏叶片主图及详情",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG银杏叶片详情.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG银杏叶片详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG银杏叶片主图1产品卖点.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG银杏叶片主图2需求场景.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG银杏叶片主图3产品成分.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG银杏叶片主图5产品信息.jpg"
+        ],
+        description: "BG PRO旗舰店 银杏叶片产品 主图及详情页面设计"
+    },
+    {
+        id: 61,
+        title: "BG PRO 免疫蛋白粉主图及详情",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG免疫蛋白粉详情.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG免疫蛋白粉详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG免疫蛋白粉主图1产品卖点.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG免疫蛋白粉主图2需求场景.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG免疫蛋白粉主图3产品成分.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG免疫蛋白粉主图5产品信息.jpg"
+        ],
+        description: "BG PRO旗舰店 免疫蛋白粉产品 主图及详情页面设计"
+    }, 
+    {
+        id: 60,
+        title: "BG PRO 蛋白丸主图及详情",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG蛋白丸详情.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG蛋白丸详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG蛋白丸主图1产品卖点.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG蛋白丸主图2需求场景.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG蛋白丸主图3产品成分.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG蛋白丸主图5产品信息.jpg"
+        ],
+        description: "BG PRO旗舰店 蛋白丸产品 主图及详情页面设计"
+    }, 
+    {
+        id: 59,
+        title: "BG PRO 护肝素主图及详情",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG护肝素详情.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG护肝素详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG护肝素主图1产品卖点.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG护肝素主图2需求场景.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG护肝素主图3产品成分.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-BG护肝素主图5产品信息.jpg"
+        ],
+        description: "BG PRO旗舰店 护肝素产品 主图及详情页面设计"
+    }, 
+    {
+        id: 58,
+        title: "京东健康 撒隆巴斯主图及详情",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-京东健康-撒隆巴斯详情.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-京东健康-撒隆巴斯详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-京东健康-撒隆巴斯主图1.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-京东健康-撒隆巴斯主图2.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-京东健康-撒隆巴斯主图3.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-京东健康-撒隆巴斯主图4.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-京东健康-撒隆巴斯主图5.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-京东健康-撒隆巴斯主图6.jpg"
+        ],
+        description: "京东健康店铺 撒隆巴斯产品 主图及详情页面设计"
+    }, 
+    {
+        id: 57,
+        title: "京东健康 幸福感冒素主图及详情",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-京东健康-幸福感冒素详情.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-京东健康-幸福感冒素详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-京东健康-幸福感冒素主图2.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-京东健康-幸福感冒素主图3.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-京东健康-幸福感冒素主图5.jpg"
+        ],
+        description: "京东健康店铺 幸福感冒素产品 主图及详情页面设计"
+    }, 
+    {
+        id: 56,
+        title: "宝和堂 美颜茶主图及详情",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/25-宝和堂美颜茶详情.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/25-宝和堂美颜茶详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/25-宝和堂美颜茶主图2.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/25-宝和堂美颜茶主图3.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/25-宝和堂美颜茶主图5.jpg"
+        ],
+        description: "宝和堂店铺 美颜茶产品 主图及详情页面设计"
+    }, 
+    {
+        id: 55,
+        title: "宝和堂 祛湿丸主图及详情",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/25-宝和堂祛湿丸详情.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/25-宝和堂祛湿丸详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/25-宝和堂祛湿丸主图1.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/25-宝和堂祛湿丸主图1-1.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/25-宝和堂祛湿丸主图2.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/25-宝和堂祛湿丸主图3.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/25-宝和堂祛湿丸主图4.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/25-宝和堂祛湿丸主图5.jpg"
+        ],
+        description: "宝和堂店铺 祛湿丸产品 主图及详情页面设计"
     }, 
     {
         id: 54,
-        title: "文字 主图及详情",
+        title: "正安堂 健胃宝主图及详情",
         category: "daily-detail",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-正安堂健胃宝详情.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图2.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图3.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图4.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-正安堂健胃宝详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-正安堂健胃宝主图3.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-正安堂健胃宝主图4.jpg"
         ],
-        description: "文字店铺 文字设计"
+        description: "正安堂店铺 健胃宝产品 主图及详情页面设计"
     }, 
     {
         id: 53,
@@ -40,7 +154,7 @@ const worksData = [
     }, 
     {
         id: 52,
-        title: "阿里健康 宝和堂海狗丸产品 主图及详情",
+        title: "阿里 宝和堂海狗丸主图及详情",
         category: "daily-detail",
         image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
         images: [
