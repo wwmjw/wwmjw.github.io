@@ -5,10 +5,67 @@ let currentWork = null;
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initWorksFilter();
+    initSearch();
     renderWorks();
     initScrollAnimations();
     initImageZoom();
 });
+
+function initSearch() {
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    
+    if (!searchInput || !searchBtn) return;
+    
+    function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        if (searchTerm) {
+            currentCategory = 'all';
+            navigateTo('works');
+            
+            setTimeout(() => {
+                const filteredWorks = worksData.filter(work => 
+                    work.title.toLowerCase().includes(searchTerm) || 
+                    work.description.toLowerCase().includes(searchTerm)
+                );
+                
+                const grids = [
+                    document.getElementById('works-grid'),
+                    document.getElementById('works-grid-page')
+                ];
+                
+                grids.forEach(grid => {
+                    if (!grid) return;
+                    grid.innerHTML = filteredWorks.map((work, index) => {
+                        const randomX = Math.floor(Math.random() * 100);
+                        const randomY = Math.floor(Math.random() * 100);
+                        return `
+                        <div class="work-card visible" data-id="${work.id}" style="transition-delay: ${index * 0.1}s">
+                            <img src="${work.image}" alt="${work.title}" class="work-image" style="object-position: ${randomX}% ${randomY}%;">
+                            <h3 class="work-title">${work.title}</h3>
+                            <p class="work-category">${getCategoryName(work.category)}</p>
+                        </div>
+                    `}).join('');
+                    
+                    grid.querySelectorAll('.work-card').forEach(card => {
+                        card.addEventListener('click', () => {
+                            const workId = parseInt(card.dataset.id);
+                            showWorkDetail(workId);
+                        });
+                    });
+                });
+            }, 200);
+        }
+    }
+    
+    searchBtn.addEventListener('click', performSearch);
+    
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+}
 
 function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-links a[data-page]');
