@@ -89,14 +89,31 @@ body {
     border: none;
     background: transparent;
     cursor: pointer;
-    font-size: 16px;
-    color: var(--text-gray);
     transition: var(--transition);
     padding: 5px;
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    min-height: 30px;
 }
 
-.search-btn:hover {
-    color: var(--primary-blue);
+.search-btn svg {
+    width: 24px;
+    height: 24px;
+    transition: var(--transition);
+    opacity: 0.8;
+    display: block;   
+}
+
+.search-btn:hover svg {
+    opacity: 1;
+    transform: scale(1.1);
+    stroke: var(--primary-blue);
+}
+
+.search-btn:hover svg path {
+    stroke: var(--primary-blue);
 }
 
 main {
