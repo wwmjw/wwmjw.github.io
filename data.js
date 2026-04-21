@@ -27,16 +27,16 @@ const worksData = [
     }, 
     {
         id: 53,
-        title: "文字 主图及详情",
+        title: "保心安油 主图及详情",
         category: "daily-detail",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-保心安油-优化详情页.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图2.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图3.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图4.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-保心安油-优化详情页.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-保心安油-优化主图2.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-保心安油-优化主图4.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-保心安油-优化主图5.jpg"
         ],
-        description: "文字店铺 文字设计"
+        description: "保心安店铺 保心安油产品 主图及详情页面设计"
     }, 
     {
         id: 52,
