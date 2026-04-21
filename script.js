@@ -76,7 +76,7 @@ function initSearch() {
                     // 渲染卡片
                     filteredWorks.forEach((work, index) => {
                         const card = document.createElement('div');
-                        card.className = 'work-card visible';
+                        card.className = 'work-card';
                         card.dataset.id = work.id;
                         card.style.transitionDelay = `${index * 0.1}s`;
                         card.innerHTML = `
@@ -100,6 +100,9 @@ function initSearch() {
                         });
                     });
                 });
+                
+                // 初始化滚动动画
+                initScrollAnimations();  
             }, 200);
         } else {
             // 如果没有搜索内容，显示全部作品
@@ -273,7 +276,7 @@ function renderWorks() {
         // 渲染卡片
         filteredWorks.forEach((work, index) => {
             const card = document.createElement('div');
-            card.className = 'work-card visible';
+            card.className = 'work-card';
             card.dataset.id = work.id;
             card.style.transitionDelay = `${index * 0.1}s`;
             card.innerHTML = `
@@ -500,10 +503,17 @@ function initImageZoom() {
     }
 }
 
+let scrollObserver = null;
+
 function initScrollAnimations() {
+    // 如果已经有观察器，先断开所有观察
+    if (scrollObserver) {
+        scrollObserver.disconnect();
+    }
+ 
     const cards = document.querySelectorAll('.work-card');
     
-    const observer = new IntersectionObserver((entries) => {
+    scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
@@ -515,7 +525,7 @@ function initScrollAnimations() {
     });
 
     cards.forEach(card => {
-        observer.observe(card);
+        scrollObserver.observe(card);
     });
 }
 
