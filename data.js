@@ -1,5 +1,70 @@
 const worksData = [
     {
+        id: 69,
+        title: "宝和堂 日常首页",
+        category: "daily-home",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/23-抖音宝和堂-日常首页APP.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-抖音宝和堂-日常首页APP.jpg"
+        ],
+        description: "宝和堂旗舰店  APP端日常首页"
+    },
+    {
+        id: 68,
+        title: "天喜堂 日常首页",
+        category: "daily-home",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/23-天喜堂日常首页PC.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-天喜堂日常首页PC.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-天喜堂日常首页APP.jpg"
+        ],
+        description: "天喜堂旗舰店  APP、PC端日常首页"
+    },
+    {
+        id: 67,
+        title: "张权 日常首页",
+        category: "daily-home",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/22-张权日常首页APP.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/22-张权日常首页APP.jpg"
+        ],
+        description: "张权旗舰店  APP端日常首页"
+    },
+    {
+        id: 66,
+        title: "正安堂 日常首页",
+        category: "daily-home",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/21-正安堂日常首页PC.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/21-正安堂日常首页PC.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/21-正安堂日常首页APP.jpg"
+        ],
+        description: "正安堂旗舰店  APP、PC端日常首页"
+    },
+    {
+        id: 65,
+        title: "法之羽 日常首页",
+        category: "daily-home",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/21-法之羽日常首页PC.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/21-法之羽日常首页PC.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/21-法之羽日常首页APP.jpg"
+        ],
+        description: "法之羽旗舰店  APP、PC端日常首页"
+    },
+    {
+        id: 64,
+        title: "紫花油 芳香红薇主图",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-芳香红薇紫花油日常主图2.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-芳香红薇紫花油日常主图2.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-芳香红薇紫花油日常主图3.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-芳香红薇紫花油日常主图4.jpg"
+        ],
+        description: "紫花油旗舰店 芳香红薇紫花油产品 主图设计"
+    },
+    {
         id: 63,
         title: "BG PRO 长高钙片主图及详情",
         category: "daily-detail",
