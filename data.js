@@ -12,14 +12,19 @@ const worksData = [
     }, 
     {
         id: 51,
-        title: "1 2海报",
-        category: "poster",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-蚬壳胃散双十一首页APP海报.jpg",
+        title: "杏林堂 无比滴产品主图",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/26-杏林堂-无比滴活动推广图1.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-蚬壳胃散双十一首页APP海报.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-蚬壳胃散双十一首页PC海报.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/26-杏林堂-无比滴活动推广图1.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/26-杏林堂-无比滴活动推广图2.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/26-杏林堂-无比滴活动推广图3.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/26-杏林堂-无比滴日常优化主图1.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/26-杏林堂-无比滴日常优化主图3.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/26-杏林堂-无比滴日常优化主图4.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/26-杏林堂-无比滴日常优化主图5.jpg"
         ],
-        description: "1旗舰店 2活动APP、PC海报"
+        description: "杏林堂店铺 无比滴产品 推广主图、日常主图设计"
     }, 
     {
         id: 50,
