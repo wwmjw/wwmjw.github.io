@@ -1,14 +1,55 @@
 const worksData = [
     {
-        id: 52,
-        title: "1 2海报",
-        category: "poster",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-蚬壳胃散双十一首页APP海报.jpg",
+        id: 55,
+        title: "文字 主图及详情",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-蚬壳胃散双十一首页APP海报.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-蚬壳胃散双十一首页PC海报.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图2.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图3.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图4.jpg"
         ],
-        description: "1旗舰店 2活动APP、PC海报"
+        description: "文字店铺 文字设计"
+    }, 
+    {
+        id: 54,
+        title: "文字 主图及详情",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图2.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图3.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图4.jpg"
+        ],
+        description: "文字店铺 文字设计"
+    }, 
+    {
+        id: 53,
+        title: "文字 主图及详情",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图2.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图3.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图4.jpg"
+        ],
+        description: "文字店铺 文字设计"
+    }, 
+    {
+        id: 52,
+        title: "阿里健康 宝和堂海狗丸产品 主图及详情",
+        category: "daily-detail",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸详情.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图2.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图3.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-阿里健康-宝和堂海狗丸主图4.jpg"
+        ],
+        description: "阿里健康店铺 宝和堂海狗丸产品 主图及详情页面设计"
     }, 
     {
         id: 51,
