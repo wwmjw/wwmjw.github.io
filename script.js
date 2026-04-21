@@ -143,19 +143,47 @@ function renderWorks() {
 
     grids.forEach(grid => {
         if (!grid) return;
-        grid.innerHTML = filteredWorks.map((work, index) => {
-            // 生成随机裁剪位置
-            const randomX = Math.floor(Math.random() * 100);
-            const randomY = Math.floor(Math.random() * 100);
-            return `
-            <div class="work-card visible" data-id="${work.id}" style="transition-delay: ${index * 0.1}s">
-                <img src="${work.image}" alt="${work.title}" class="work-image" style="object-position: ${randomX}% ${randomY}%;">
-                <h3 class="work-title">${work.title}</h3>
-                <p class="work-category">${getCategoryName(work.category)}</p>
-            </div>
-        `}).join('');
-
-        grid.querySelectorAll('.work-card').forEach(card => {
+        grid.innerHTML = '';
+        
+        // 创建列元素
+        const columnCount = window.innerWidth <= 768 ? 2 : 5;
+        const columns = [];
+        const columnHeights = [];
+        
+        for (let i = 0; i < columnCount; i++) {
+            const column = document.createElement('div');
+            column.className = 'works-column';
+            column.style.flex = '1';
+            column.style.display = 'flex';
+            column.style.flexDirection = 'column';
+            column.style.gap = '20px';
+            grid.appendChild(column);
+            columns.push(column);
+            columnHeights.push(0);
+        }
+        
+        // 渲染卡片
+        filteredWorks.forEach((work, index) => {
+            const card = document.createElement('div');
+            card.className = 'work-card visible';
+            card.dataset.id = work.id;
+            card.style.transitionDelay = `${index * 0.1}s`;
+            card.innerHTML = `
+                <div class="work-info">
+                    <h3 class="work-title">${work.title}</h3>
+                    <p class="work-category">${getCategoryName(work.category)}</p>
+                </div>
+                <img src="${work.image}" alt="${work.title}" class="work-image">
+            `;
+            
+            // 找到最短的列
+            const shortestColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
+            columns[shortestColumnIndex].appendChild(card);
+            
+            // 预估卡片高度（用于瀑布流）
+            // 由于实际高度需要图片加载后才能确定，这里用简单的方式
+            columnHeights[shortestColumnIndex] += 300; // 预估高度
+            
             card.addEventListener('click', () => {
                 const workId = parseInt(card.dataset.id);
                 showWorkDetail(workId);
@@ -390,4 +418,13 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.style.boxShadow = '0 4px 12px rgba(163, 177, 198, 0.3)';
     }
+});
+
+// 窗口大小变化时重新渲染作品
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        renderWorks();
+    }, 250);
 });
