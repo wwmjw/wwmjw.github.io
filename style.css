@@ -51,8 +51,7 @@ body {
     border-radius: 12px;
     box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
     padding: 5px 10px;
-    width: 500px;
-    max-width: 90%;
+    width: 100%;
 }
 
 .search-input {
