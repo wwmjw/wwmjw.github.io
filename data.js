@@ -23,25 +23,37 @@ const worksData = [
     }, 
     {
         id: 50,
-        title: "1 2海报",
-        category: "poster",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-蚬壳胃散双十一首页APP海报.jpg",
+        title: "幸福 日常轮播品销宝",
+        category: "other",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-京东幸福-肠胃消化系列.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-蚬壳胃散双十一首页APP海报.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-蚬壳胃散双十一首页PC海报.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-京东幸福-肠胃消化系列.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-京东幸福-成人感冒系列.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-京东幸福-儿童感冒系列.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-京东幸福-儿童用药系列.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-京东幸福-抗敏系列.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-京东幸福-暖胃系列.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-京东幸福-润喉系列.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-京东幸福-晕车系列.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-京东幸福-止咳化痰系列.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-京东幸福-止痛膏贴系列.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/24-京东幸福-止痛退烧系列.jpg"
         ],
-        description: "1旗舰店 2活动APP、PC海报"
+        description: "幸福旗舰店 日常轮播品销宝"
     },     
     {
         id: 49,
-        title: "1 2海报",
-        category: "poster",
-        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-蚬壳胃散双十一首页APP海报.jpg",
+        title: "紫花油 日常轮播品销宝",
+        category: "other",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/1_紫花油品销宝-紫花油系列.jpg",
         images: [
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-蚬壳胃散双十一首页APP海报.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/21-蚬壳胃散双十一首页PC海报.jpg"
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/1_紫花油品销宝-紫花油系列.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/2_紫花油品销宝-滚珠系列.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/3_紫花油品销宝-活络油.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/3_紫花油品销宝-活络油.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/5_紫花油品销宝-喷雾.jpg"
         ],
-        description: "1旗舰店 2活动APP、PC海报"
+        description: "紫花油旗舰店 日常轮播品销宝"
     }, 
     {
         id: 48,
