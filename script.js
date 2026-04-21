@@ -301,6 +301,9 @@ function renderWorks() {
             });
         });
     });
+
+    // 初始化滚动动画，让卡片显示出来
+    initScrollAnimations();
 }
 
 function getCategoryName(category) {
