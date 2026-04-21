@@ -1,5 +1,16 @@
 const worksData = [
     {
+        id: 70,
+        title: "Ddrops 日常海报",
+        category: "poster",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/20-Ddrops日常海报PC.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/20-Ddrops日常海报PC.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/20-Ddrops日常海报APP.jpg"
+        ],
+        description: "Ddrops旗舰店 日常APP、PC海报"
+    },
+    {
         id: 69,
         title: "宝和堂 日常首页",
         category: "daily-home",
