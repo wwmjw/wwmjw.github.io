@@ -234,8 +234,7 @@ main {
     transition: var(--transition);
 }
 
-.dropdown:hover .dropdown-menu,
-.dropdown.active .dropdown-menu {
+.dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -386,8 +385,8 @@ main {
     box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-    transform: translateY(30px);
+    transition: var(--transition);
+    transform: translateY(50px);
     opacity: 0;
     position: relative;
     width: 100%;
@@ -416,11 +415,6 @@ main {
     object-fit: contain;
     object-position: center;
     background: var(--bg-color);
-    display: block;
-    /* 防止图片加载时布局跳动 */
-    content-visibility: auto;
-    /* 优化渲染性能 */
-    will-change: transform;
 }
 
 .work-info {
@@ -806,33 +800,6 @@ main {
     }
     .about-card {
         padding: 40px 30px;
-    }
-    
-    /* 移动端下拉菜单优化 */
-    .dropdown-menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        transform: translateY(-10px);
-        min-width: auto;
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto;
-        z-index: 1001;
-        border-radius: 0 0 12px 12px;
-    }
-    
-    .dropdown:hover .dropdown-menu {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-    }
-    
-    .dropdown.active .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
     }
 }
 
