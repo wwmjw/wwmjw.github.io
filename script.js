@@ -1,6 +1,7 @@
 let currentPage = 'home';
 let currentCategory = 'all';
 let currentWork = null;
+let documentClickListener = null; // 追踪文档点击监听器
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
@@ -65,72 +66,83 @@ function initSearch() {
         if (searchTerm) {
             currentCategory = 'all';
             navigateTo('works');
-            
-            setTimeout(() => {
-                const filteredWorks = worksData.filter(work => 
-                    work.title.toLowerCase().includes(searchTerm) || 
-                    work.description.toLowerCase().includes(searchTerm)
-                );
-                
-                const grids = [
-                    document.getElementById('works-grid'),
-                    document.getElementById('works-grid-page')
-                ];
-                
-                grids.forEach(grid => {
-                    if (!grid) return;
-                    grid.innerHTML = '';
+
+            // 先导航到页面，然后等页面切换完成后渲染搜索结果
+            const waitForPage = () => {
+                const worksPage = document.getElementById('works-page');
+                if (worksPage && worksPage.classList.contains('active')) {
+                    // 页面已激活，渲染搜索结果
+                    const filteredWorks = worksData.filter(work => 
+                        work.title.toLowerCase().includes(searchTerm) || 
+                        work.description.toLowerCase().includes(searchTerm)
+                    );
                     
-                    // 创建列元素
-                    const columnCount = window.innerWidth <= 768 ? 2 : 5;
-                    const columns = [];
-                    const columnHeights = [];
+                    const grids = [
+                        document.getElementById('works-grid'),
+                        document.getElementById('works-grid-page')
+                    ];
                     
-                    for (let i = 0; i < columnCount; i++) {
-                        const column = document.createElement('div');
-                        column.className = 'works-column';
-                        column.style.flex = '1';
-                        column.style.display = 'flex';
-                        column.style.flexDirection = 'column';
-                        column.style.gap = '20px';
-                        grid.appendChild(column);
-                        columns.push(column);
-                        columnHeights.push(0);
-                    }
-                    
-                    // 渲染卡片
-                    filteredWorks.forEach((work, index) => {
-                        const card = document.createElement('div');
-                        // 立即添加visible类，避免跳动
-                        card.className = 'work-card visible';
-                        card.dataset.id = work.id;
-                        // 减少延迟时间
-                        card.style.transitionDelay = `${Math.min(index * 0.03, 0.3)}s`;
-                        card.innerHTML = `
-                            <div class="work-info">
-                                <h3 class="work-title">${work.title}</h3>
-                                <p class="work-category">${getCategoryName(work.category)}</p>
-                            </div>
-                            <img src="${work.image}" alt="${work.title}" class="work-image" loading="lazy">
-                        `;
+                    grids.forEach(grid => {
+                        if (!grid) return;
+                        grid.innerHTML = '';
                         
-                        // 找到最短的列
-                        const shortestColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
-                        columns[shortestColumnIndex].appendChild(card);
+                        // 创建列元素
+                        const columnCount = window.innerWidth <= 768 ? 2 : 5;
+                        const columns = [];
+                        const columnHeights = [];
                         
-                        // 预估卡片高度（用于瀑布流）
-                        columnHeights[shortestColumnIndex] += 300;
+                        for (let i = 0; i < columnCount; i++) {
+                            const column = document.createElement('div');
+                            column.className = 'works-column';
+                            column.style.flex = '1';
+                            column.style.display = 'flex';
+                            column.style.flexDirection = 'column';
+                            column.style.gap = '20px';
+                            grid.appendChild(column);
+                            columns.push(column);
+                            columnHeights.push(0);
+                        }
                         
-                        card.addEventListener('click', () => {
-                            const workId = parseInt(card.dataset.id);
-                            showWorkDetail(workId);
+                        // 渲染卡片
+                        filteredWorks.forEach((work, index) => {
+                            const card = document.createElement('div');
+                            // 立即添加visible类，避免跳动
+                            card.className = 'work-card visible';
+                            card.dataset.id = work.id;
+                            // 减少延迟时间
+                            card.style.transitionDelay = `${Math.min(index * 0.03, 0.3)}s`;
+                            card.innerHTML = `
+                                <div class="work-info">
+                                    <h3 class="work-title">${work.title}</h3>
+                                    <p class="work-category">${getCategoryName(work.category)}</p>
+                                </div>
+                                <img src="${work.image}" alt="${work.title}" class="work-image" loading="lazy">
+                            `;
+                            
+                            // 找到最短的列
+                            const shortestColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
+                            columns[shortestColumnIndex].appendChild(card);
+                            
+                            // 预估卡片高度（用于瀑布流）
+                            columnHeights[shortestColumnIndex] += 300;
+                            
+                            card.addEventListener('click', () => {
+                                const workId = parseInt(card.dataset.id);
+                                showWorkDetail(workId);
+                            });
                         });
                     });
-                });
-                
-                // 初始化滚动动画
-                initScrollAnimations();  
-            }, 200);
+                    
+                    // 初始化滚动动画
+                    initScrollAnimations();
+                    updateFilterButtons();
+                } else {
+                    // 页面还未激活，继续等待
+                    setTimeout(waitForPage, 50);
+                }
+            };
+            
+            waitForPage();  
         } else {
             // 如果没有搜索内容，显示全部作品
             currentCategory = 'all';
@@ -141,8 +153,10 @@ function initSearch() {
     
     searchBtn.addEventListener('click', performSearch);
     
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
+    // 使用keydown替代keypress，兼容性更好
+    searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            e.preventDefault();
             performSearch();
         }
     });
@@ -176,6 +190,17 @@ function initNavigation() {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
                 dropdown.classList.toggle('active');
+
+                // 动态调整下拉菜单位置
+                if (dropdown.classList.contains('active')) {
+                    const navbar = document.querySelector('.navbar');
+                    const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+                    if (navbar && dropdownMenu) {
+                        const navbarHeight = navbar.offsetHeight;
+                        dropdownMenu.style.top = `${navbarHeight}px`;
+                        dropdownMenu.style.transform = 'translateY(0)';
+                    }
+                }
             }
         });
     }
@@ -214,13 +239,19 @@ function initNavigation() {
         });
     });
 
+    // 移除旧的文档点击监听器（如果存在）
+    if (documentClickListener) {
+        document.removeEventListener('click', documentClickListener);
+    }
+
     // 点击页面其他地方关闭下拉菜单
-    document.addEventListener('click', (e) => {
+    documentClickListener = (e) => {
         const dropdown = document.querySelector('.dropdown');
         if (dropdown && !dropdown.contains(e.target)) {
             dropdown.classList.remove('active');
         }
-    });
+    };
+    document.addEventListener('click', documentClickListener);
 }
 
 function navigateTo(page) {
