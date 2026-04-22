@@ -286,7 +286,7 @@ const worksData = [
             "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/1_紫花油品销宝-紫花油系列.jpg",
             "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/2_紫花油品销宝-滚珠系列.jpg",
             "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/3_紫花油品销宝-活络油.jpg",
-            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/3_紫花油品销宝-活络油.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/4_紫花油品销宝-C75软膏.jpg",
             "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/5_紫花油品销宝-喷雾.jpg"
         ],
         description: "紫花油旗舰店 日常轮播品销宝"
