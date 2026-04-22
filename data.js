@@ -1,18 +1,178 @@
 const worksData = [
     {
+        id: 85,
+        title: "张权 618APP+PC活动页",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/22-张权618首页PC.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/22-张权618首页PC.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/22-张权618首页APP.jpg"
+        ],
+        description: "张权旗舰店 618活动 APP+PC端首页"
+    },
+    {
+        id: 84,
+        title: "金波士 双十一APP活动页",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/22-金波士双十一首页APP.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/22-金波士双十一首页APP.jpg"
+        ],
+        description: "金波士旗舰店 双十一活动 APP端首页"
+    },
+   {
+        id: 83,
+        title: "张权 双十二APP活动页+主图",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/23-张权1212首页APP.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-张权1212首页APP.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-张权1212主图800.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-张权1212主图750.jpg"
+        ],
+        description: "张权旗舰店 双十二活动 APP端首页+主图"
+    },
+    {
+        id: 82,
+        title: "太和洞 双十二APP+PC活动页",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/22-太和洞双十二APP.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/22-太和洞双十二APP.jpg"
+        ],
+        description: "太和洞旗舰店 双十二活动 APP+PC端首页"
+    },
+    {
+        id: 81,
+        title: "法之羽 38APP活动页",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/23-法之羽38节首页APP.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-法之羽38节首页APP.jpg"
+        ],
+        description: "法之羽旗舰店 38活动 APP端首页"
+    },
+    {
+        id: 80,
+        title: "加州宝宝 双十一APP+PC活动页",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/22-加州宝宝双十一首页PC.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/22-加州宝宝双十一首页PC.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/22-加州宝宝双十一首页APP.jpg"
+        ],
+        description: "加州宝宝旗舰店  双十一活动 APP+PC端首页"
+    },
+    {
+        id: 79,
+        title: "加州宝宝 618APP活动页",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/23-加州宝宝618首页APP.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-加州宝宝618首页APP.jpg"
+        ],
+        description: "加州宝宝旗舰店  618活动 APP端首页"
+    },
+    {
+        id: 78,
+        title: "加州宝宝 双十二APP活动页",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/23-加州宝宝双十二首页APP.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-加州宝宝双十二首页APP.jpg"
+        ],
+        description: "加州宝宝旗舰店  双十二活动 APP端首页"
+    },
+    {
+        id: 77,
+        title: "加州宝宝 双十一APP活动页",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/23-加州宝宝双十一首页APP.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-加州宝宝双十一首页APP.jpg"
+        ],
+        description: "加州宝宝旗舰店  双十一活动 APP端首页"
+    },
+    {
+        id: 76,
+        title: "天喜堂 618APP活动页",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/23-天喜堂618首页.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-天喜堂618首页.jpg"
+        ],
+        description: "正安堂旗舰店  618活动 APP端首页"
+    },
+    {
+        id: 75,
+        title: "正安堂 双十二APP活动页+主图",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/23-正安堂双12首页APP.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-正安堂双12首页APP.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-正安堂双12主图800.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-正安堂双12主图750.jpg"
+        ],
+        description: "正安堂旗舰店  双十二活动 APP端首页+活动主图"
+    },
+    {
+        id: 74,
+        title: "保心安 双十一APP活动页+主图",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/23-双十一保心安首页1200.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-双十一保心安首页1200.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-双十一保心安主图800.jpg"
+        ],
+        description: "保心安旗舰店  双十一活动 APP端首页+活动主图"
+    },
+    {
+        id: 73,
+        title: "日皇 双十一APP活动页+主图",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/23-日皇双十一首页APP.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-日皇双十一首页APP.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-日皇双十一主图800.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/23-日皇双十一主图750.jpg"
+        ],
+        description: "日皇旗舰店  双十一活动 APP端首页+活动主图"
+    },
+    {
+        id: 72,
+        title: "张权 618APP活动页",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/24-张权618首页.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-张权618首页.jpg",
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/主图及详情/24-张权618主图800.jpg"
+        ],
+        description: "张权旗舰店  618活动APP端首页"
+    },
+    {
+        id: 71,
+        title: "杏林堂 618APP活动页",
+        category: "activity-page",
+        image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/25-杏林堂618首页APP.jpg",
+        images: [
+            "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/25-杏林堂618首页APP.jpg"
+        ],
+        description: "杏林堂旗舰店  618活动APP端首页"
+    },
+    {
         id: 70,
-        title: "Ddrops 日常海报",
+        title: "Ddrops 日常APP+PC海报",
         category: "poster",
         image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/20-Ddrops日常海报PC.jpg",
         images: [
             "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/20-Ddrops日常海报PC.jpg",
             "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/海报/20-Ddrops日常海报APP.jpg"
         ],
-        description: "Ddrops旗舰店 日常APP、PC海报\n\n本作完成于 2020 年，也是第一次尝试写实风格合成类设计。创作过程中投入了较多时间打磨细节，如今回看虽有不足，但正是这一次从零开始的尝试，让我之后更敢于突破舒适区，去探索更多不同的设计风格。"
+        description: "Ddrops旗舰店 日常APP+PC海报\n\n本作完成于 2020 年，也是第一次尝试写实风格合成类设计。创作过程中投入了较多时间打磨细节，如今回看虽有不足，但正是这一次从零开始的尝试，让我之后更敢于突破舒适区，去探索更多不同的设计风格。"
     },
     {
         id: 69,
-        title: "宝和堂 日常首页",
+        title: "宝和堂 APP日常首页",
         category: "daily-home",
         image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/23-抖音宝和堂-日常首页APP.jpg",
         images: [
@@ -22,7 +182,7 @@ const worksData = [
     },
     {
         id: 68,
-        title: "天喜堂 日常首页",
+        title: "天喜堂 APP+PC日常首页",
         category: "daily-home",
         image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/23-天喜堂日常首页PC.jpg",
         images: [
@@ -33,7 +193,7 @@ const worksData = [
     },
     {
         id: 67,
-        title: "张权 日常首页",
+        title: "张权 APP日常首页",
         category: "daily-home",
         image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/22-张权日常首页APP.jpg",
         images: [
@@ -43,7 +203,7 @@ const worksData = [
     },
     {
         id: 66,
-        title: "正安堂 日常首页",
+        title: "正安堂 APP+PC日常首页",
         category: "daily-home",
         image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/21-正安堂日常首页PC.jpg",
         images: [
@@ -54,7 +214,7 @@ const worksData = [
     },
     {
         id: 65,
-        title: "法之羽 日常首页",
+        title: "法之羽 APP+PC日常首页",
         category: "daily-home",
         image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/21-法之羽日常首页PC.jpg",
         images: [
@@ -679,7 +839,7 @@ const worksData = [
     },
     {
         id: 10,
-        title: "BG PRO 日常首页",
+        title: "BG PRO 日常APP首页",
         category: "daily-home",
         image: "https://wwmjw-1423348972.cos.ap-guangzhou.myqcloud.com/images/日常首页/24-BG PRO-日常首页APP.jpg",
         images: [
