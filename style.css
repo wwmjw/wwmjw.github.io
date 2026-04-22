@@ -419,8 +419,8 @@ main {
     display: block;
     /* 防止图片加载时布局跳动 */
     content-visibility: auto;
-    /* 优化加载性能 */
-    loading: lazy;
+    /* 优化渲染性能 */
+    will-change: transform;
 }
 
 .work-info {
@@ -806,6 +806,33 @@ main {
     }
     .about-card {
         padding: 40px 30px;
+    }
+    
+    /* 移动端下拉菜单优化 */
+    .dropdown-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(-10px);
+        min-width: auto;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        z-index: 1001;
+        border-radius: 0 0 12px 12px;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+    }
+    
+    .dropdown.active .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 }
 
