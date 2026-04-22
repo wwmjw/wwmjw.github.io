@@ -104,43 +104,42 @@ function initSearch() {
                         }
                         
                         // 渲染卡片
-                        filteredWorks.forEach((work, index) => {
-                            const card = document.createElement('div');
-                            // 立即添加visible类，避免跳动
-                            card.className = 'work-card visible';
-                            card.dataset.id = work.id;
-                            // 减少延迟时间
-                            card.style.transitionDelay = `${Math.min(index * 0.03, 0.3)}s`;
-                            card.innerHTML = `
-                                <div class="work-info">
-                                    <h3 class="work-title">${work.title}</h3>
-                                    <p class="work-category">${getCategoryName(work.category)}</p>
-                                </div>
-                                <img src="${work.image}" alt="${work.title}" class="work-image" loading="lazy">
-                            `;
-                            
-                            // 找到最短的列
-                            const shortestColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
-                            columns[shortestColumnIndex].appendChild(card);
-                            
-                            // 预估卡片高度（用于瀑布流）
-                            columnHeights[shortestColumnIndex] += 300;
-                            
-                            card.addEventListener('click', () => {
-                                const workId = parseInt(card.dataset.id);
-                                showWorkDetail(workId);
-                            });
+                    filteredWorks.forEach((work, index) => {
+                        const card = document.createElement('div');
+                        // 直接显示，不需要visible类，避免动画
+                        card.className = 'work-card';
+                        card.dataset.id = work.id;
+                        // 去掉动画延迟
+                        card.innerHTML = `
+                            <div class="work-info">
+                                <h3 class="work-title">${work.title}</h3>
+                                <p class="work-category">${getCategoryName(work.category)}</p>
+                            </div>
+                            <img src="${work.image}" alt="${work.title}" class="work-image" loading="lazy">
+                        `;
+                        
+                        // 找到最短的列
+                        const shortestColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
+                        columns[shortestColumnIndex].appendChild(card);
+                        
+                        // 预估卡片高度（用于瀑布流）
+                        columnHeights[shortestColumnIndex] += 300;
+                        
+                        card.addEventListener('click', () => {
+                            const workId = parseInt(card.dataset.id);
+                            showWorkDetail(workId);
                         });
                     });
-                    
-                    // 初始化滚动动画
-                    initScrollAnimations();
-                    updateFilterButtons();
-                } else {
-                    // 页面还未激活，继续等待
-                    setTimeout(waitForPage, 50);
-                }
-            };
+                });
+                
+                // 初始化滚动动画（虽然现在不需要了，但保留以兼容）
+                initScrollAnimations();
+                updateFilterButtons();
+            } else {
+                // 页面还未激活，继续等待
+                setTimeout(waitForPage, 50);
+            }
+        };
             
             waitForPage();  
         } else {
@@ -186,13 +185,18 @@ function initNavigation() {
     // 为移动端添加下拉菜单点击切换功能
     if (worksLink) {
         worksLink.addEventListener('click', (e) => {
-            // 如果当前在移动端，点击作品链接时切换下拉菜单
+            // 如果当前在移动端
             if (window.innerWidth <= 768) {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-
-                // 动态调整下拉菜单位置
+                // 如果下拉菜单已经打开，则关闭它并导航到作品页面
                 if (dropdown.classList.contains('active')) {
+                    closeDropdown();
+                    navigateTo('works');
+                } else {
+                    // 打开下拉菜单
+                    e.preventDefault();
+                    dropdown.classList.add('active');
+                    
+                    // 动态调整下拉菜单位置
                     const navbar = document.querySelector('.navbar');
                     const dropdownMenu = dropdown.querySelector('.dropdown-menu');
                     if (navbar && dropdownMenu) {
@@ -202,6 +206,7 @@ function initNavigation() {
                     }
                 }
             }
+            // 电脑端保持默认行为（hover显示下拉菜单）
         });
     }
 
@@ -358,11 +363,10 @@ function renderWorks() {
         // 渲染卡片
         filteredWorks.forEach((work, index) => {
             const card = document.createElement('div');
-            // 立即添加visible类，避免跳动
-            card.className = 'work-card visible';
+            // 直接显示，不需要visible类，避免动画
+            card.className = 'work-card';
             card.dataset.id = work.id;
-            // 减少延迟时间
-            card.style.transitionDelay = `${Math.min(index * 0.03, 0.3)}s`;
+            // 去掉动画延迟
             card.innerHTML = `
                 <div class="work-info">
                     <h3 class="work-title">${work.title}</h3>
@@ -605,23 +609,11 @@ function initScrollAnimations() {
     if (scrollObserver) {
         scrollObserver.disconnect();
     }
- 
-    const cards = document.querySelectorAll('.work-card');
-    
-    scrollObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            // 只在进入视口时添加visible类，离开时不移除
-            if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.05, // 降低阈值，让卡片更容易进入
-        rootMargin: '100px 0px 100px 0px' // 增加上下边距，提前加载
-    });
 
+    // 所有卡片立即显示，不等待滚动 - 解决跳动问题
+    const cards = document.querySelectorAll('.work-card');
     cards.forEach(card => {
-        scrollObserver.observe(card);
+        card.classList.add('visible');
     });
 }
 
