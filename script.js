@@ -101,15 +101,17 @@ function initSearch() {
                     // 渲染卡片
                     filteredWorks.forEach((work, index) => {
                         const card = document.createElement('div');
-                        card.className = 'work-card';
+                        // 立即添加visible类，避免跳动
+                        card.className = 'work-card visible';
                         card.dataset.id = work.id;
-                        card.style.transitionDelay = `${index * 0.1}s`;
+                        // 减少延迟时间
+                        card.style.transitionDelay = `${Math.min(index * 0.03, 0.3)}s`;
                         card.innerHTML = `
                             <div class="work-info">
                                 <h3 class="work-title">${work.title}</h3>
                                 <p class="work-category">${getCategoryName(work.category)}</p>
                             </div>
-                            <img src="${work.image}" alt="${work.title}" class="work-image">
+                            <img src="${work.image}" alt="${work.title}" class="work-image" loading="lazy">
                         `;
                         
                         // 找到最短的列
@@ -149,6 +151,8 @@ function initSearch() {
 function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-links a[data-page]');
     const logo = document.querySelector('.logo');
+    const dropdown = document.querySelector('.dropdown');
+    const worksLink = dropdown ? dropdown.querySelector('a[data-page="works"]') : null;
 
     logo.addEventListener('click', (e) => {
         e.preventDefault();
@@ -165,6 +169,17 @@ function initNavigation() {
         });
     });
 
+    // 为移动端添加下拉菜单点击切换功能
+    if (worksLink) {
+        worksLink.addEventListener('click', (e) => {
+            // 如果当前在移动端，点击作品链接时切换下拉菜单
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            }
+        });
+    }
+
     const dropdownLinks = document.querySelectorAll('.dropdown-menu a[data-category]');
     dropdownLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -172,6 +187,9 @@ function initNavigation() {
             const category = link.dataset.category;
             currentCategory = category;
             
+            // 关闭下拉菜单
+            closeDropdown();
+         
             document.querySelectorAll('.nav-links a[data-page]').forEach(navLink => {
                 navLink.classList.remove('active');
                 if (navLink.dataset.page === 'works') {
@@ -194,6 +212,14 @@ function initNavigation() {
             currentPage = 'works';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+    });
+
+    // 点击页面其他地方关闭下拉菜单
+    document.addEventListener('click', (e) => {
+        const dropdown = document.querySelector('.dropdown');
+        if (dropdown && !dropdown.contains(e.target)) {
+            dropdown.classList.remove('active');
+        }
     });
 }
 
@@ -301,15 +327,17 @@ function renderWorks() {
         // 渲染卡片
         filteredWorks.forEach((work, index) => {
             const card = document.createElement('div');
-            card.className = 'work-card';
+            // 立即添加visible类，避免跳动
+            card.className = 'work-card visible';
             card.dataset.id = work.id;
-            card.style.transitionDelay = `${index * 0.1}s`;
+            // 减少延迟时间
+            card.style.transitionDelay = `${Math.min(index * 0.03, 0.3)}s`;
             card.innerHTML = `
                 <div class="work-info">
                     <h3 class="work-title">${work.title}</h3>
                     <p class="work-category">${getCategoryName(work.category)}</p>
                 </div>
-                <img src="${work.image}" alt="${work.title}" class="work-image">
+                <img src="${work.image}" alt="${work.title}" class="work-image" loading="lazy">
             `;
             
             // 找到最短的列
@@ -327,8 +355,16 @@ function renderWorks() {
         });
     });
 
-    // 初始化滚动动画，让卡片显示出来
+    // 仍然初始化滚动动画，用于后续可能添加的卡片
     initScrollAnimations();
+}
+
+// 关闭下拉菜单
+function closeDropdown() {
+    const dropdown = document.querySelector('.dropdown');
+    if (dropdown) {
+        dropdown.classList.remove('active');
+    }
 }
 
 function getCategoryName(category) {
@@ -543,13 +579,14 @@ function initScrollAnimations() {
     
     scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            // 只在进入视口时添加visible类，离开时不移除
+            if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
                 entry.target.classList.add('visible');
             }
         });
     }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.05, // 降低阈值，让卡片更容易进入
+        rootMargin: '100px 0px 100px 0px' // 增加上下边距，提前加载
     });
 
     cards.forEach(card => {
