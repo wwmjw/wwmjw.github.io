@@ -1,7 +1,6 @@
 let currentPage = 'home';
 let currentCategory = 'all';
 let currentWork = null;
-let documentClickListener = null; // 追踪文档点击监听器
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
@@ -66,56 +65,51 @@ function initSearch() {
         if (searchTerm) {
             currentCategory = 'all';
             navigateTo('works');
-
-            // 先导航到页面，然后等页面切换完成后渲染搜索结果
-            const waitForPage = () => {
-                const worksPage = document.getElementById('works-page');
-                if (worksPage && worksPage.classList.contains('active')) {
-                    // 页面已激活，渲染搜索结果
-                    const filteredWorks = worksData.filter(work => 
-                        work.title.toLowerCase().includes(searchTerm) || 
-                        work.description.toLowerCase().includes(searchTerm)
-                    );
+            
+            setTimeout(() => {
+                const filteredWorks = worksData.filter(work => 
+                    work.title.toLowerCase().includes(searchTerm) || 
+                    work.description.toLowerCase().includes(searchTerm)
+                );
+                
+                const grids = [
+                    document.getElementById('works-grid'),
+                    document.getElementById('works-grid-page')
+                ];
+                
+                grids.forEach(grid => {
+                    if (!grid) return;
+                    grid.innerHTML = '';
                     
-                    const grids = [
-                        document.getElementById('works-grid'),
-                        document.getElementById('works-grid-page')
-                    ];
+                    // 创建列元素
+                    const columnCount = window.innerWidth <= 768 ? 2 : 5;
+                    const columns = [];
+                    const columnHeights = [];
                     
-                    grids.forEach(grid => {
-                        if (!grid) return;
-                        grid.innerHTML = '';
-                        
-                        // 创建列元素
-                        const columnCount = window.innerWidth <= 768 ? 2 : 5;
-                        const columns = [];
-                        const columnHeights = [];
-                        
-                        for (let i = 0; i < columnCount; i++) {
-                            const column = document.createElement('div');
-                            column.className = 'works-column';
-                            column.style.flex = '1';
-                            column.style.display = 'flex';
-                            column.style.flexDirection = 'column';
-                            column.style.gap = '20px';
-                            grid.appendChild(column);
-                            columns.push(column);
-                            columnHeights.push(0);
-                        }
-                        
-                        // 渲染卡片
+                    for (let i = 0; i < columnCount; i++) {
+                        const column = document.createElement('div');
+                        column.className = 'works-column';
+                        column.style.flex = '1';
+                        column.style.display = 'flex';
+                        column.style.flexDirection = 'column';
+                        column.style.gap = '20px';
+                        grid.appendChild(column);
+                        columns.push(column);
+                        columnHeights.push(0);
+                    }
+                    
+                    // 渲染卡片
                     filteredWorks.forEach((work, index) => {
                         const card = document.createElement('div');
-                        // 直接显示，不需要visible类，避免动画
                         card.className = 'work-card';
                         card.dataset.id = work.id;
-                        // 去掉动画延迟
+                        card.style.transitionDelay = `${index * 0.1}s`;
                         card.innerHTML = `
                             <div class="work-info">
                                 <h3 class="work-title">${work.title}</h3>
                                 <p class="work-category">${getCategoryName(work.category)}</p>
                             </div>
-                            <img src="${work.image}" alt="${work.title}" class="work-image" loading="lazy">
+                            <img src="${work.image}" alt="${work.title}" class="work-image">
                         `;
                         
                         // 找到最短的列
@@ -132,16 +126,9 @@ function initSearch() {
                     });
                 });
                 
-                // 初始化滚动动画（虽然现在不需要了，但保留以兼容）
-                initScrollAnimations();
-                updateFilterButtons();
-            } else {
-                // 页面还未激活，继续等待
-                setTimeout(waitForPage, 50);
-            }
-        };
-            
-            waitForPage();  
+                // 初始化滚动动画
+                initScrollAnimations();  
+            }, 200);
         } else {
             // 如果没有搜索内容，显示全部作品
             currentCategory = 'all';
@@ -152,10 +139,8 @@ function initSearch() {
     
     searchBtn.addEventListener('click', performSearch);
     
-    // 使用keydown替代keypress，兼容性更好
-    searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.keyCode === 13) {
-            e.preventDefault();
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
             performSearch();
         }
     });
@@ -164,8 +149,6 @@ function initSearch() {
 function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-links a[data-page]');
     const logo = document.querySelector('.logo');
-    const dropdown = document.querySelector('.dropdown');
-    const worksLink = dropdown ? dropdown.querySelector('a[data-page="works"]') : null;
 
     logo.addEventListener('click', (e) => {
         e.preventDefault();
@@ -182,34 +165,6 @@ function initNavigation() {
         });
     });
 
-    // 为移动端添加下拉菜单点击切换功能
-    if (worksLink) {
-        worksLink.addEventListener('click', (e) => {
-            // 如果当前在移动端
-            if (window.innerWidth <= 768) {
-                // 如果下拉菜单已经打开，则关闭它并导航到作品页面
-                if (dropdown.classList.contains('active')) {
-                    closeDropdown();
-                    navigateTo('works');
-                } else {
-                    // 打开下拉菜单
-                    e.preventDefault();
-                    dropdown.classList.add('active');
-                    
-                    // 动态调整下拉菜单位置
-                    const navbar = document.querySelector('.navbar');
-                    const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-                    if (navbar && dropdownMenu) {
-                        const navbarHeight = navbar.offsetHeight;
-                        dropdownMenu.style.top = `${navbarHeight}px`;
-                        dropdownMenu.style.transform = 'translateY(0)';
-                    }
-                }
-            }
-            // 电脑端保持默认行为（hover显示下拉菜单）
-        });
-    }
-
     const dropdownLinks = document.querySelectorAll('.dropdown-menu a[data-category]');
     dropdownLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -217,9 +172,6 @@ function initNavigation() {
             const category = link.dataset.category;
             currentCategory = category;
             
-            // 关闭下拉菜单
-            closeDropdown();
-         
             document.querySelectorAll('.nav-links a[data-page]').forEach(navLink => {
                 navLink.classList.remove('active');
                 if (navLink.dataset.page === 'works') {
@@ -243,20 +195,6 @@ function initNavigation() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
-
-    // 移除旧的文档点击监听器（如果存在）
-    if (documentClickListener) {
-        document.removeEventListener('click', documentClickListener);
-    }
-
-    // 点击页面其他地方关闭下拉菜单
-    documentClickListener = (e) => {
-        const dropdown = document.querySelector('.dropdown');
-        if (dropdown && !dropdown.contains(e.target)) {
-            dropdown.classList.remove('active');
-        }
-    };
-    document.addEventListener('click', documentClickListener);
 }
 
 function navigateTo(page) {
@@ -363,16 +301,15 @@ function renderWorks() {
         // 渲染卡片
         filteredWorks.forEach((work, index) => {
             const card = document.createElement('div');
-            // 直接显示，不需要visible类，避免动画
             card.className = 'work-card';
             card.dataset.id = work.id;
-            // 去掉动画延迟
+            card.style.transitionDelay = `${index * 0.1}s`;
             card.innerHTML = `
                 <div class="work-info">
                     <h3 class="work-title">${work.title}</h3>
                     <p class="work-category">${getCategoryName(work.category)}</p>
                 </div>
-                <img src="${work.image}" alt="${work.title}" class="work-image" loading="lazy">
+                <img src="${work.image}" alt="${work.title}" class="work-image">
             `;
             
             // 找到最短的列
@@ -390,16 +327,8 @@ function renderWorks() {
         });
     });
 
-    // 仍然初始化滚动动画，用于后续可能添加的卡片
+    // 初始化滚动动画，让卡片显示出来
     initScrollAnimations();
-}
-
-// 关闭下拉菜单
-function closeDropdown() {
-    const dropdown = document.querySelector('.dropdown');
-    if (dropdown) {
-        dropdown.classList.remove('active');
-    }
 }
 
 function getCategoryName(category) {
@@ -609,11 +538,22 @@ function initScrollAnimations() {
     if (scrollObserver) {
         scrollObserver.disconnect();
     }
-
-    // 所有卡片立即显示，不等待滚动 - 解决跳动问题
+ 
     const cards = document.querySelectorAll('.work-card');
+    
+    scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
     cards.forEach(card => {
-        card.classList.add('visible');
+        scrollObserver.observe(card);
     });
 }
 
