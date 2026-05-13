@@ -1,17 +1,12 @@
 let currentPage = 'home';
 let currentCategory = 'all';
 let currentWork = null;
-let shuffledWorksData = null; // 保存随机排序后的作品数据
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initWorksFilter();
     initSearch();
     adjustSearchPosition();
-        
-    // 在页面加载时随机排序一次并保存
-    shuffledWorksData = [...worksData].sort(() => Math.random() - 0.5);
-  
     renderWorks();
     initScrollAnimations();
     initImageZoom();
@@ -72,7 +67,7 @@ function initSearch() {
             navigateTo('works');
             
             setTimeout(() => {
-                const filteredWorks = shuffledWorksData.filter(work => 
+                const filteredWorks = worksData.filter(work => 
                     work.title.toLowerCase().includes(searchTerm) || 
                     work.description.toLowerCase().includes(searchTerm)
                 );
@@ -274,10 +269,13 @@ function renderWorks() {
         document.getElementById('works-grid-page')
     ];
 
-    // 使用已经随机排序好的数据，保持顺序不变
-    let filteredWorks = shuffledWorksData;
+    let filteredWorks = worksData;
     if (currentCategory !== 'all') {
-        filteredWorks = shuffledWorksData.filter(work => work.category === currentCategory);
+        // 非"全部"分类：保持原有顺序
+        filteredWorks = worksData.filter(work => work.category === currentCategory);
+    } else {
+        // "全部"分类：随机排序
+        filteredWorks = [...worksData].sort(() => Math.random() - 0.5);
     }
 
     grids.forEach(grid => {
