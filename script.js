@@ -271,13 +271,13 @@ function renderWorks() {
 
     let filteredWorks = worksData;
     if (currentCategory !== 'all') {
-        // 非"全部"分类：保持原有顺序
+        // 非"全部"分类：筛选后随机排序
         filteredWorks = worksData.filter(work => work.category === currentCategory);
-    } else {
-        // "全部"分类：随机排序
-        filteredWorks = [...worksData].sort(() => Math.random() - 0.5);
     }
-
+    
+    // 所有分类都随机排序
+    filteredWorks = [...filteredWorks].sort(() => Math.random() - 0.5);
+    
     grids.forEach(grid => {
         if (!grid) return;
         grid.innerHTML = '';
