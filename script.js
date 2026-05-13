@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderWorks();
     initScrollAnimations();
     initImageZoom();
+    initBackToTop();
     
     // 页面加载完成后再次调整位置，确保完全准确
     window.addEventListener('load', adjustSearchPosition);
@@ -575,3 +576,35 @@ window.addEventListener('resize', () => {
         renderWorks();
     }, 250);
 });
+
+function initBackToTop() {
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (!backToTopBtn) return;
+
+    function toggleBackToTop() {
+        const homePage = document.getElementById('home-page');
+        const worksPage = document.getElementById('works-page');
+        
+        const isHomeOrWorks = homePage.classList.contains('active') || worksPage.classList.contains('active');
+        const shouldShow = window.scrollY > 300 && isHomeOrWorks;
+        
+        backToTopBtn.style.display = shouldShow ? 'flex' : 'none';
+    }
+
+    window.addEventListener('scroll', toggleBackToTop);
+
+    document.querySelectorAll('[data-page]').forEach(link => {
+        link.addEventListener('click', () => {
+            setTimeout(toggleBackToTop, 100);
+        });
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    toggleBackToTop();
+}
